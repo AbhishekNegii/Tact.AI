@@ -1,14 +1,22 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
-import './Cart.css'
+import "./Cart.css";
 
 const Cart = (props) => {
   const items = useSelector((state) => state.cartItem.items);
-  console.log("i",items)
+  console.log("i", items);
+
+  let total = 0;
+
+  items.forEach((item) => {
+    total = total + Number(item.price) * Number(item.quantity);
+  });
+  total = `Rs. ${total.toFixed(2)}`;
+
   return (
     <div>
-    <h2> Your Cart</h2>
+      <h2> Your Cart</h2>
       <ul className="cart-items">
         {items.map((item) => (
           <CartItem
@@ -19,12 +27,14 @@ const Cart = (props) => {
               quantity: item.quantity,
               total: item.totalPrice,
               price: item.price,
-              image:item.image
+              image: item.image,
             }}
           />
         ))}
       </ul>
-      </div>
+      <h2>Total Amount: {total}</h2>
+      <h3><button>Purchase</button></h3>
+    </div>
   );
 };
 

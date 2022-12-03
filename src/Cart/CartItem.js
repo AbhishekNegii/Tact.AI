@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addCartActions } from "../Store/addCartSlice";
-import './Cart.css'
+import "./Cart.css";
 
 const CartItem = (props) => {
   const dispatch = useDispatch();
@@ -15,27 +15,27 @@ const CartItem = (props) => {
         id: props.item.id,
         title: props.item.title,
         price: props.item.price,
-        quantity:props.item.quantity
+        quantity: props.item.quantity,
       })
     );
   };
- 
 
   return (
-    <ul className="cart-item" >
-        <div className="image-box">
-      <img src={props.item.image} alt="pic" width="20%" />
+    <ul className="cart-item">
+      <div className="image-box">
+        <img src={props.item.image} alt="pic" width="20%" />
       </div>
       <h3 className="title">{props.item.title}</h3>
-         <div className="summary">           
-          <span className="price">
-          Price: Rs. {props.item.total} Quantity :{props.item.quantity}</span>
-        </div>
-        <div className="actions">
-          <button onClick={reduceItemHandler}>-</button>
-          <button onClick={addItemHandler}>+</button>
-        </div>
-    </ul>
+      <div className="summary">
+        <span className="price">
+           Rs. {props.item.total} Quantity :{props.item.quantity}
+        </span>
+      </div>
+      <div className="actions">
+        <button onClick={reduceItemHandler}>-</button>
+        <button onClick={addItemHandler}>+</button>
+      </div>
+      </ul>
   );
 };
 
