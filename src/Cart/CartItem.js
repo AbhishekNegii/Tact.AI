@@ -25,17 +25,18 @@ const CartItem = (props) => {
       <div className="image-box">
         <img src={props.item.image} alt="pic" width="20%" />
       </div>
-      <h3 className="title">{props.item.title}</h3>
       <div className="summary">
+      <h3>{props.item.title}</h3>
+      
         <span className="price">
-           Rs. {props.item.total} Quantity :{props.item.quantity}
+          Rs. {props.item.total} Quant :{props.item.quantity}
         </span>
       </div>
       <div className="actions">
         <button onClick={reduceItemHandler}>-</button>
         <button onClick={addItemHandler}>+</button>
       </div>
-      </ul>
+    </ul>
   );
 };
 

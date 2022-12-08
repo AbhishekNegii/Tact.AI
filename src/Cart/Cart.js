@@ -16,7 +16,7 @@ const Cart = (props) => {
 
   return (
     <div>
-      <h2> Your Cart</h2>
+      <h2 style={{color:'black'}}> Your Cart</h2>
       <ul className="cart-items">
         {items.map((item) => (
           <CartItem
@@ -32,7 +32,7 @@ const Cart = (props) => {
           />
         ))}
       </ul>
-      <h2>Total Amount: {total}</h2>
+      <h3 style={{color:'black'}}>Total Amount: {total}</h3>
       <h3><button>Purchase</button></h3>
     </div>
   );

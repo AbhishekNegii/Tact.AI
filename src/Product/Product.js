@@ -10,17 +10,18 @@ const Product = () => {
   useEffect(() => {
     getData();
   }, []);
-  const arr = [];
+  
   const getData = async () => {
-    const response = await axios("https://dummyjson.com/products");
+    const arr = [];
+     const response = await axios("https://dummyjson.com/products");
     const data = response.data.products;
-    for (let i = 0; i < 10; i++) {
+    console.log(data)
+    for (let i = 0; i < 20; i++) {
       arr.push(data[i]);
     }
+
     setProduct(arr);
-    // console.log(data)
   };
-  // console.log(arr)
 
   const dispatch = useDispatch();
   const addToCartHandler = (item) => {
@@ -36,15 +37,15 @@ const Product = () => {
   };
 
   return (
-    <div className="display">
-      {product.map((item) => {
+    <div className="cards">
+      {product.map((item,i) => {
         return (
           <div style={{ width: "33%" }}>
-            <div className="product-item">
+            <div>
               <img src={item.thumbnail} alt="pic" width="50%" />
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <h2> Rs. {item.price}</h2>
+              <h2 className="productname">{item.title}</h2>
+              <small>{item.description}</small>
+              <h2 className="price"> Rs. {item.price}</h2>
               <button onClick={() => addToCartHandler(item)}>
                 Add to Cart
               </button>
